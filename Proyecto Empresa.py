@@ -6,6 +6,9 @@ def main(page: ft.Page):
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.bgcolor = ft.colors.BLUE
 
+    def funcionLogin():
+
+
     img1 = ft.Image(
         src=f"Icono.png",
         width=200,
@@ -21,10 +24,14 @@ def main(page: ft.Page):
     )
 
     usuario = ft.TextField(label = "Usuario", width=400)
-    contraseña = ft.TextField(label = "Contraseña", width=400)
+    contraseña = ft.TextField(label = "Contraseña", width=400, password=True, can_reveal_password=True)
 
-    columna = ft.Column(controls=[usuario, contraseña])
-    contDatos = ft.Container(content=columna, bgcolor=ft.colors.LIGHT_BLUE, margin=50)
 
-    page.add(img1, contDatos, img2)
+    contUsuario = ft.Container(content=usuario, margin=10, bgcolor=ft.colors.LIGHT_BLUE)
+    contContraseña = ft.Container(content=contraseña, margin=10, bgcolor=ft.colors.LIGHT_BLUE)
+    columnaU = ft.Column(controls=[contUsuario, contContraseña])
+
+    login = ft.ElevatedButton(text="Login")
+
+    page.add(img1, columnaU, login, img2)
 ft.app(target=main, assets_dir="Imágenes")
