@@ -20,5 +20,11 @@ def main(page: ft.Page):
         fit=ft.ImageFit.CONTAIN,
     )
 
-    page.add(img1, img2)
+    usuario = ft.TextField(label = "Usuario", width=400)
+    contraseña = ft.TextField(label = "Contraseña", width=400)
+
+    columna = ft.Column(controls=[usuario, contraseña])
+    contDatos = ft.Container(content=columna, bgcolor=ft.colors.LIGHT_BLUE, margin=50)
+
+    page.add(img1, contDatos, img2)
 ft.app(target=main, assets_dir="Imágenes")
