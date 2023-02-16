@@ -5,9 +5,13 @@ def main(page: ft.Page):
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.bgcolor = ft.colors.BLUE  
-    contador = 0
+
+    global contador
+    txtcontador = ft.TextField(value=0)
+
 
     def funcionLogin(r):
+        contador = txtcontador.value
         usuariob = "Raul"
         contraseñab = "123"
         dlg = ft.AlertDialog(
@@ -16,12 +20,14 @@ def main(page: ft.Page):
         if contador<3 or usuario.value != usuariob or contraseña.value != contraseñab:
             dlg.open = True
             contador = contador + 1
+            txtcontador.value = contador
             print(contador)
         elif contador >= 3:
             print("d")
         else:
             print("a")
         page.update()
+        return contador
 
     img1 = ft.Image(
         src=f"Icono.png",
