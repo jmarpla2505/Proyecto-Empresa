@@ -37,9 +37,13 @@ def main(page: ft.Page):
                 dlg.open = True
                 page.clean()
         else:
-                time.sleep(1)
+                dlg = ft.AlertDialog(
+                title=ft.Text("Intentos máximos alcanzados"))
+                page.dialog = dlg
+                dlg.open = True
+                page.update()
+                time.sleep(2)
                 page.window_close()
-                print("Intentos máximos realizados, intento de inicio de sesión fallido")
         page.update()
 
     img1 = ft.Image(
